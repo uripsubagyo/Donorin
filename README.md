@@ -11,7 +11,7 @@ Anda dapat mengakses situs web Kelompok A04 di [link berikut.](https://a04-donor
 * Salma Hanifah Hidayanti
 
 ## Cerita aplikasi dan manfaat Donorin
-Ancaman kesehatan global merupakan isu yang tengah dibahas dalam G20. Setelah pandemi COVID-19 yang memengaruhi kesehatan banyak individu, penurunan kemampuan masyarakat untuk membantu dalam bidang kesehatan mulai terlihat. Data kantong darah yang diberikan oleh Provinsi Jawa Tengah mengalami kekurangan hingga 60%.
+Ancaman kesehatan global merupakan isu yang tengah dibahas dalam G20. Setelah pandemi COVID-19 yang memengaruhi kesehatan banyak individu, penurunan kemampuan masyarakat untuk membantu dalam bidang kesehatan mulai terlihat. Data kantong darah yang diberikan oleh Provinsi Jawa Tengah mengalami kekurangan hingga 60 persen.
 
 Kebutuhan darah pasca COVID-19 mulai membaik, tetapi masih perlu diwaspadai. Data yang dikutip dari theconvercation.com pada tanggal 19 September 2022 mengungkapkan bahwa Indonesia masih mempunyai 20 persen kebutuhan kantong darah. Namun, pemerataan ketersediaan darah belum terwujud dengan baik. Terdapat daerah yang masih kekurangan kantong darah dan yang kelebihan kantong darah. Dengan begitu kesulitan dalam mencari data ketersediaan kantong darah masih sangat sulit untuk diperoleh.
 
