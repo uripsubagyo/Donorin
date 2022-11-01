@@ -89,14 +89,9 @@
     <!-- NAVBAR TOP -->
     <nav class="navbar" style="background-color:rgb(102, 10, 26);">
         <div class="container-fluid">
-          <a class="navbar-brand">&#129656;</a>
-          <!--<form class="d-flex" role="search">
-            <a class="btn btn-outline-light" type="submit" href="{% url 'landing:addNews' %}">Sign In</a>
-          </form>-->
-
-          <li class="d-flex flex-row-reverse nav-item dropdown">
+          <li class="d-flex flex-row nav-item dropdown">
             <a style="color: white;text-align: right"class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Menu
+              <span>&#129656;   </span>Menu
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Dashboard</a></li>
@@ -163,13 +158,11 @@
         <div class = "login container d-flex flex-column justify-content-center align-items-center">
             {% for card in listDataNews %}
             <div class="card" style="width: 70rem; margin: 10px">
-            <!--<img src="{{ card.image }}" class="card-img-top" >-->
             <div class="card-body">
                 <div style="display: flex; flex-direction: row">
                     <h5 class="card-title">{{ card.title }}</h5>
                 </div>
                 <p class="card-text">{{ card.description }}</p>
-                <!--<small class="text-muted">{{ card.date }}</small>-->
             </div>
             </div>
             {% endfor %}
