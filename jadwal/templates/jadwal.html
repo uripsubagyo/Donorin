@@ -1,0 +1,62 @@
+{% extends 'base-jadwal.html' %}
+
+{% block content %}
+
+<title>Riwayat Donor Darah</title>
+
+<body>
+<nav class="navbar" style="background-color:rgb(102, 10, 26);height:50px;">
+    <div class="container-fluid">
+      <li class="d-flex flex-row nav-item dropdown">
+        <a style="color: white;text-align: right"class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span>&#129656;   </span>Menu
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Dashboard</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Book Jadwal</a></li>
+        </ul>
+      </li>
+    </div>
+</nav>
+
+<br>
+<p style="text-align:center;">Untuk membuat janji donor darah baru, isi formulir <a href="{% url 'jadwal:book_jadwal' %}">di sini</a>.</p>
+<br>
+<br>
+
+<div class="container">
+    <h3 style="text-align:center">Riwayat Donor Darah</h3>          
+    <table class="table table-hover">
+        <thead>
+            <tr style="text-align:center">
+                <th>Tanggal</th>
+                <th>Lokasi</th>
+                <th>Status</th>
+                <th>Pilihan</th>
+            </tr>
+        </thead>
+        <br>
+        <br>
+        <tbody>
+            {% for jadwal in list_jadwal %}
+                <tr>
+                <ol reversed>
+                <td>{{jadwal.date}}/{{jadwal.month}}/{{jadwal.year}}</td>
+                <td>{{jadwal.loc}}</td>
+                <td>{{jadwal.accepted}}</td>
+                <td>
+                    {% if jadwal.accepted != 'Selesai' %}
+                    <button style="margin-left:auto;margin-right:auto;display:block;margin-top:0%;margin-bottom:0%"><a href="{% url 'jadwal:delete' jadwal.id %}">Batalkan</a></button>
+                    {% endif %}
+                </td>
+                </ol>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+  </div>
+
+</body>
+
+{% endblock content %}
