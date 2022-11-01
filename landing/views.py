@@ -15,7 +15,7 @@ def showLanding(request):
     dataNews = News.objects.all() #.filter(user=request.user)
     context = {
         'listDataNews' : dataNews,
-        #'user' : request.user.get_user(),
+        'user' : request.user.get_user(),
     }
     return render(request, "mainPage.html", context)
 
@@ -26,7 +26,7 @@ def addNews(request):
         form = NewsForm(request.POST or None, request.FILES or None)
         if form.is_valid():
             dataNews = News()
-            #dataNews.user = request.user
+            dataNews.user = request.user
             dataNews.title = form.cleaned_data['title']
             dataNews.description = form.cleaned_data['description']
             dataNews.save()
@@ -37,7 +37,7 @@ def addNews(request):
 
 #@login_required(login_url='/login/')
 def deleteNews(request, id):
-    #user = request.user
+    user = request.user
     dataNews = News.objects.filter(user=user).get(pk=id)
     dataNews.delete()
 
