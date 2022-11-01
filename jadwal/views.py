@@ -42,3 +42,6 @@ def book_jadwal(request):
         form = JadwalForm()
     context = {'form':form}
     return render(request, 'book.html', context)
+
+def show_location(request):
+    return render(request, 'location.html')

@@ -9,25 +9,10 @@
 
 <body>
 
-<nav class="navbar" style="background-color:rgb(102, 10, 26);height:50px;">
-    <div class="container-fluid">
-      <li class="d-flex flex-row nav-item dropdown">
-        <a style="color: white;text-align: right"class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <span>&#129656;   </span>Menu
-        </a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Dashboard</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Book Jadwal</a></li>
-        </ul>
-      </li>
-    </div>
-</nav>
-
 <br>
 <h2 style="font-size:2vw;text-align:center">Buat Jadwal Donor Darah</h2>
 <br>
-<p style="text-align:center;">Informasi mengenai lokasi donor darah dapat diakses <a href="/location/">di sini</a>.</p>
+<p style="text-align:center;">Informasi mengenai lokasi donor darah dapat diakses <a href="{% url 'jadwal:show_location' %}">di sini</a>.</p>
 <p style="text-align:center">Apabila terdapat data yang tidak sesuai, mohon maaf permintaan Anda tidak dapat kami proses.</p>
 <br>
 
