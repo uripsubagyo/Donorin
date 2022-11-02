@@ -20,9 +20,6 @@ def login_user(request):
             if information == 0:
                 return redirect('dashboard:information_user')
             else:
-                #ganti ke dashboard, redirect dibawah sifatya sementara
-                #if is admin
-                #else:
                 return redirect('dashboard:information_user')
         else:
             messages.info(request, 'Username atau Password salah!')

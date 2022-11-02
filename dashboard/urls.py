@@ -11,4 +11,4 @@ urlpatterns  = [
         path('information/', information_user, name='information_user'),
         path('admin/', dashboard_admin, name = 'dashboard_admin'),
         path('relawan/', dashboard_relawan, name = 'dashboard_relawan'),
-        path('information_admin/"]!lRx=xzp~s', information_admin, name = 'information_admin')]
+        path('information_admin_adminxxis', information_admin, name = 'information_admin')]

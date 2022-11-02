@@ -7,11 +7,17 @@ from django.core import serializers
 from django.http.response import JsonResponse
 from adminDashboard.models import hasilScreening
 from adminDashboard.forms import ScreeningForm
+from dashboard.models import InformationUser
 
 # Create your views here.
 
 def showDash(request):
-    return render(request, "adminDashPage.html")
+    users = InformationUser.objects.filter(user =request.user, is_admin_user = True).count()
+
+    if users != 0:
+        return render(request, "adminDashPage.html")
+    else:
+        return redirect('dashboard:dashboard_relawan')
 
 def addScreening(request):
     form = ScreeningForm()
