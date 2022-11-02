@@ -47,7 +47,7 @@ def information_user(request):
     else:
         # direct dashboard information
         usersa = InformationUser.objects.filter(user=request.user, is_admin_user=False).count()
-        print(usersa)
+
         if usersa !=0 & is_admin != 0:
             return redirect('dashboard:dashboard_admin')
         else:
@@ -57,29 +57,30 @@ def information_user(request):
 def direct_url(request):
     user = InformationUser.objects.filter(user = request.user).count()
     is_admin = InformationUser.objects.filter(user = request.user, is_admin_user= True).count()
+    if user == 0:
+        return redirect('dashboard:information_user')
+
     if is_admin != 0:
             return redirect('dashboard:dashboard_admin')
-    # if
-    #     return redirect('dashboard:dashboard_admin')
     else:
         return redirect("dashboard:dashboard_relawan")
 
 @login_required(login_url='login/')
 def dashboard_relawan(request):
-    context = {}
-    usersa = InformationUser.objects.filter(user=request.user, is_admin_user=False).count()
-    # is_user = InformationUser.objects.filter(user = request.user, is_admin_user = False).count()
+        context = {}
+        usersa = InformationUser.objects.filter(user=request.user, is_admin_user=False).count()
 
-    if usersa != 0:
-        return render(request, 'dashboard_relawan.html', context)
-    else:
-        return redirect('dashboard:dashboard_admin') 
+        if usersa != 0:
+            return render(request, 'dashboard_relawan.html', context)
+        else:
+            return redirect('dashboard:dashboard_admin') 
 
 
 @login_required(login_url='login/')
 def dashboard_admin(request):
     context = {}
     usersa = InformationUser.objects.filter(user=request.user, is_admin_user=True)
+
     if usersa != 0:
         return render(request, 'dashboard_admin.html', context)
     else:
