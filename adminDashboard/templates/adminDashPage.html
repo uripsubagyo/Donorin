@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .bground {
+            background-color: #FFFFFF;
+        }
+
+        @media (max-width: 767px) {
+            .features{
+                margin-bottom: 10px;
+            }
+            .features h2{
+                margin-bottom: 25px;
+                padding-top: 25px;
+                font-size: 24px;
+            }
+            .features .intro {
+                margin-bottom: 40px;
+            }
+            .features .item {
+                min-height: 0;
+            }
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    
+    <!-- NAVBAR TOP -->
+    <nav class="navbar" style="background-color:rgb(102, 10, 26);">
+        <div class="container-fluid">
+          <a class="navbar-brand">&#129656;</a>
+          <form class="d-flex" role="search">
+            <a class="btn btn-outline-light" type="submit" href="{% url 'landing:showLanding' %}">Sign Out</a>
+          </form>
+        </div>
+    </nav>
+
+    <!-- BACKGROUND PAGE -->
+    <div class="bground">
+        <h1 style="color: rgb(102, 10, 26);" class="text-left">Welcome {{user}}</h1>
+    </div>
+
+    <div style="justify-content:center">
+        <a class="btn btn-sign" type="submit" href="{% url 'landing:addNews' %}" style="background-color: rgb(102, 10, 26); border-radius: 30px; font-style: normal; font-weight: 700; font-size: 20px; line-height: 24px; color: #FFFFFF; margin-top: 150px;">Add News</a>
+        <a class="btn btn-sign" type="submit" href="{% url 'adminDashboard:addScreening' %}"style="background-color: rgb(102, 10, 26); border-radius: 30px; font-style: normal; font-weight: 700; font-size: 20px; line-height: 24px; color: #FFFFFF; margin-top: 150px;">Add Hasil Screening</a>
+    </div> 
+
+
+
+
+</body>
+
+{% include 'bottomNavbar.html' %}
+{% endblock content %}
