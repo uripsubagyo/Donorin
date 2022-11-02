@@ -22,6 +22,5 @@ urlpatterns = [
     path('login/', include('signin.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('', include('landing.urls')),
+    path('jadwal/', include('jadwal.urls')),
 ]
-
-# TODO: Implement Routings Here
