@@ -14,7 +14,7 @@
         <div class="container-fluid">
           <a class="navbar-brand">&#129656;</a>
           <form class="d-flex" role="search">
-            <a class="btn btn-outline-light" type="submit" href="{% url 'adminDash:adminDashPage' %}">Sign Out</a>
+            <a class="btn btn-outline-light" type="submit" href="{% url 'adminDashboard:showDash' %}">Sign Out</a>
           </form>
         </div>
     </nav>
@@ -24,22 +24,28 @@
         <form method="POST">
             {% csrf_token %}
             <label>Nama Donor</label>
-            <input class="form-control" type="text" placeholder="">
+            <!--<input class="form-control" type="text" placeholder="">-->
+            {{form.namaDonor}}
+            <br>
 
             <label>Tekanan Darah</label>
-            <input class="form-control" type="text" placeholder="">
+            <!--<input class="form-control" type="text" placeholder="">-->
+            {{form.tekananDarah}}
             <br>
             
             <label>Suhu Tubuh</label>
-            <input class="form-control" type="text" placeholder="">
+            <!--<input class="form-control" type="text" placeholder="">-->
+            {{form.suhuTubuh}}
             <br>
 
             <label>Kadar Hemoglobin</label>
-            <input class="form-control" type="text" placeholder="">
+            <!--<input class="form-control" type="text" placeholder="">-->
+            {{form.kadarHemo}}
             <br>
 
             <label>Berat Badan</label>
-            <input class="form-control" type="text" placeholder="">
+            <!--<input class="form-control" type="text" placeholder="">-->
+            {{form.beratBadan}}
             <br>
       
             <button type="submit" class="btn btn-outline-secondary btn-sm">Submit</button>
@@ -54,4 +60,5 @@
         </div>
     </nav>
 </body>
+{% include 'bottomNavbar.html' %}
 {% endblock content %}

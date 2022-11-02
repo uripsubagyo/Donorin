@@ -6,7 +6,8 @@ from django.urls import reverse
 from django.core import serializers
 from django.http.response import JsonResponse
 from adminDashboard.models import hasilScreening
-from users.models import UserAccount
+from adminDashboard.forms import ScreeningForm
+
 # Create your views here.
 
 def showDash(request):
