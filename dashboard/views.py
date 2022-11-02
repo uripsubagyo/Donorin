@@ -14,6 +14,7 @@ def information_user(request):
     username_user = request.user.username
     # check user sudah pernah isi atau tidak:
     information_default = InformationUser.objects.filter(user = request.user).count()
+    is_admin = InformationUser.objects.filter(user = request.user, is_admin_user = True).count()
     if request.method == "POST":
         print(request)
         full_name = request.POST.get("full_name")
@@ -31,22 +32,23 @@ def information_user(request):
                     birth_date = birth_date, 
                     province = province, 
                     city = city, 
-                    gender = gender)
+                    gender = gender,
+                    is_admin_user = False,
+                    )
         information.save()
         data = {}
         data['success'] = True
         return HttpResponse(json.dumps(data), content_type='application/json')
 
-
     context = {'username': username_user}
-
 
     if information_default == 0:
         return render(request, 'build_information_user.html', context)
     else:
         # direct dashboard information
         usersa = InformationUser.objects.filter(user=request.user, is_admin_user=False).count()
-        if usersa !=0:
+        print(usersa)
+        if usersa !=0 & is_admin != 0:
             return redirect('dashboard:dashboard_admin')
         else:
             return redirect('dashboard:dashboard_relawan')
@@ -54,20 +56,22 @@ def information_user(request):
 @login_required(login_url='login/')
 def direct_url(request):
     user = InformationUser.objects.filter(user = request.user).count()
-    if user == 0:
-        redirect
-    if admin:
-        return redirect('dashboard:dashboard_admin')
+    is_admin = InformationUser.objects.filter(user = request.user, is_admin_user= True).count()
+    if is_admin != 0:
+            return redirect('dashboard:dashboard_admin')
+    # if
+    #     return redirect('dashboard:dashboard_admin')
     else:
-        return redirect()
+        return redirect("dashboard:dashboard_relawan")
 
 @login_required(login_url='login/')
 def dashboard_relawan(request):
     context = {}
     usersa = InformationUser.objects.filter(user=request.user, is_admin_user=False).count()
-    print("hgvhv")
+    # is_user = InformationUser.objects.filter(user = request.user, is_admin_user = False).count()
+
     if usersa != 0:
-        return render(request, 'dahsboard_relawan.html', context)
+        return render(request, 'dashboard_relawan.html', context)
     else:
         return redirect('dashboard:dashboard_admin') 
 
@@ -117,8 +121,8 @@ def information_admin(request):
         #kondosi belum isi
         render(request, 'build_information.html', context)
     else:
-        usersa = InformationUser.objects.filter(user=request.user)
-        if usersa.is_admin_user() == True:
+        usersa = InformationUser.objects.filter(user=request.user, is_admin_user=True)
+        if usersa != 0:
             return redirect('dashboard:dashboard_admin')
         else:
             return redirect('dashboard:dashboard_relawan')
