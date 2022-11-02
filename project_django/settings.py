@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'landing',
     'adminDashboard',
     'jadwal',
+    'signup',
+    'signin',
+    'dashboard'
 ]
 
 MIDDLEWARE = [
