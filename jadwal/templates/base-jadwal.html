@@ -19,10 +19,10 @@
         <span>&#129656;   </span>Menu
       </a>
       <ul class="dropdown-menu">
-          <li><a class="dropdown-item">Home</a></li>
+          <li><a class="dropdown-item" href="{% url 'landing:showLanding' %}">Home</a></li>
           <li><a class="dropdown-item" href="#">Dashboard</a></li>
-          <li><a class="dropdown-item" href="#">Book Jadwal</a></li>
-          <li><a class="dropdown-item" href="#">Daftar Lokasi</a></li>
+          <li><a class="dropdown-item" href="{% url 'jadwal:book' %}">Book Jadwal</a></li>
+          <li><a class="dropdown-item" href="{% url 'jadwal:show_location' %}">Daftar Lokasi</a></li>
       </ul>
     </li>
     <a class="btn btn-outline-light" type="submit" href="#">Sign Out</a>
