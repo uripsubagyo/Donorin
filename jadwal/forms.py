@@ -7,12 +7,12 @@ def date_validator(tanggal):
 	if inp <= current: raise forms.ValidationError("Masukkan tanggal yang akan datang")
 
 loc = [
-    ('prov', 'PMI Provinsi DKI Jakarta'),
-    ('jakut', 'PMI Kota Jakarta Utara'),
-    ('jakpus', 'PMI Kota Jakarta Pusat'),
-    ('jaktim', 'PMI Kota Jakarta Timur'),
-    ('jakbar', 'PMI Kota Jakarta Barat'),
-    ('jaksel', 'PMI Kota Jakarta Selatan'),
+    ('PMI Provinsi DKI Jakarta', 'PMI Provinsi DKI Jakarta'),
+    ('PMI Kota Jakarta Utara', 'PMI Kota Jakarta Utara'),
+    ('PMI Kota Jakarta Pusat', 'PMI Kota Jakarta Pusat'),
+    ('PMI Kota Jakarta Timur', 'PMI Kota Jakarta Timur'),
+    ('PMI Kota Jakarta Barat', 'PMI Kota Jakarta Barat'),
+    ('PMI Kota Jakarta Selatan', 'PMI Kota Jakarta Selatan'),
 ]
 
 class JadwalForm(forms.Form):

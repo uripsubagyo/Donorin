@@ -9,11 +9,13 @@
 
 <br>
 <p style="text-align:center;">Untuk membuat janji donor darah baru, isi formulir <a href="{% url 'jadwal:book_jadwal' %}">di sini</a>.</p>
-<br>
-<br>
 
 <div class="container">
-    <h3 style="text-align:center">Riwayat Donor Darah</h3>          
+    <div class="features" id="features">
+        <div class="container">
+            <div class="features-intro">
+                <h3 style="color:black;" class="text-center">Riwayat Donor Darah</h3>
+            </div>        
     <table class="table table-hover">
         <thead>
             <tr style="text-align:center">
@@ -24,17 +26,16 @@
             </tr>
         </thead>
         <br>
-        <br>
         <tbody>
             {% for jadwal in list_jadwal %}
                 <tr>
                 <ol reversed>
-                <td>{{jadwal.date}}/{{jadwal.month}}/{{jadwal.year}}</td>
-                <td>{{jadwal.loc}}</td>
-                <td>{{jadwal.accepted}}</td>
-                <td>
+                <td style="text-align:center">{{jadwal.date}}{{jadwal.month}}{{jadwal.year}}</td>
+                <td style="text-align:center">{{jadwal.loc}}</td>
+                <td style="text-align:center">{{jadwal.accepted}}</td>
+                <td style="text-align:center;">
                     {% if jadwal.accepted != 'Selesai' %}
-                    <button style="margin-left:auto;margin-right:auto;display:block;margin-top:0%;margin-bottom:0%"><a href="{% url 'jadwal:delete' jadwal.id %}">Batalkan</a></button>
+                    <a href="{% url 'jadwal:delete' jadwal.id %}">Batalkan</a>
                     {% endif %}
                 </td>
                 </ol>

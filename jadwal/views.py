@@ -22,9 +22,8 @@ def show_jadwal(request):
 def delete(request, id):
     if Jadwal.objects.get(id=id).accepted == 'Menunggu konfirmasi':
         Jadwal.objects.get(id=id).delete()
-        return JsonResponse({'instance': 'Permintaan mendonor dibatalkan'}, status=200)
     elif Jadwal.objects.get(id=id).accepted == 'Dikonfirmasi - menunggu kedatangan':
-        return JsonResponse({'instance': 'Anda tidak dapat menghapus jadwal yang sudah dikonfirmasi, silakan hubungi UTD terkait'}, status=200)
+         return redirect('jadwal:show_jadwal')
     return redirect('jadwal:show_jadwal')
 
 # @login_required(login_url='/login/')
