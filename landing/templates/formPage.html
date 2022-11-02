@@ -46,12 +46,13 @@
               <span>&#129656;   </span>Menu
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Dashboard</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Book Jadwal</a></li>
+                <li><a class="dropdown-item" href="{% url 'landing:showLanding' %}">Home</a></li>
+                <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Book Jadwal</a></li>
             </ul>
           </li>
-          <a class="btn btn-outline-light" type="submit" href="#">Sign In</a>
+          <a class="btn btn-outline-light" type="submit" href="#">Sign Out</a>
         </div>
     </nav>
     
@@ -79,14 +80,8 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div><br>
 
-    <br>
-    <!-- NAVBAR BOTTOM -->
-    <nav class="navbar" style="background-color:rgb(34, 30, 31);">
-        <div class="container-fluid">
-            <a style="color:white"class="navbar-brand">&#129656; Donorin</a>
-        </div>
-    </nav>
-</body>
+{% include 'bottomNavbar.html' %}
+
 {% endblock content %}

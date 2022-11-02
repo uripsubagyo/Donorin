@@ -76,7 +76,8 @@
     <!-- NAVBAR TOP -->
     <nav class="navbar" style="background-color:rgb(102, 10, 26);">
         <div class="container-fluid">
-          <li class="d-flex flex-row nav-item dropdown">
+            <a style="color:white"class="navbar-brand">&#129656; Donorin</a>
+          <!--<li class="d-flex flex-row nav-item dropdown">
             <a style="color: white;text-align: right"class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <span>&#129656;   </span>Menu
             </a>
@@ -85,13 +86,13 @@
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Book Jadwal</a></li>
             </ul>
-          </li>
+          </li>-->
           <a class="btn btn-outline-light" type="submit" href="#">Sign In</a>
         </div>
     </nav>
 
     <!-- BACKGROUND PAGE -->
-    <div style="background-image: url(https://deeplor.s3.us-west-2.amazonaws.com/upload/2022/11/01/0be2f392eb11431cae4437d6d74a75a0.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221101T183310Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAROYXHKZUSZONTWIG%2F20221101%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=b61834e73f84ae97e13287bc4fd4215c8f5277884bd51e94a8e8c32f582136dd);background-repeat:no-repeat;background-position: center center;background-size:cover;height:500px;">
+    <div style="background-image: url(https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-6/313438075_1165895774328703_6240560141678303491_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_ohc=SXkp6GfWWUYAX_ySPuZ&_nc_ht=scontent-sin6-2.xx&oh=00_AfBH0zxmmo2V47x-ZpILsSO99BxecBPOtu6bwpwka43ioQ&oe=6365C503);background-repeat:no-repeat;background-position: center center;background-size:cover;height:500px;">
         <h1 style="color:rgb(102, 10, 26); font-size:55px; font-family:verdana; text-align:center; vertical-align:middle; line-height:480px;"><b>Donorin</b></h1>
     </div>
 
@@ -136,12 +137,12 @@
         <div class="features" id="features">
             <div class="container">
                 <div class="features-intro">
-                    <h2 style="color:white"class="text-center"><br>What's you need before Donorin<br></h2>
+                    <h2 style="color:white"class="text-center"><br>What you need before Donorin<br></h2>
                 </div>
 
         <div class = "login container d-flex flex-column justify-content-center align-items-center">
             {% for card in listDataNews %}
-            <div class="card" style="width: 70rem; margin: 10px">
+            <div class="card" style="width: 70rem; margin: 10px; border-radius: 25px;">
             <div class="card-body">
                 <div style="display: flex; flex-direction: row">
                     <h5 class="card-title">{{ card.title }}</h5>
@@ -152,15 +153,7 @@
             </div>
             {% endfor %}
         </div>
-    </div>
-
-    <br>
-    <!-- NAVBAR BOTTOM -->
-    <nav class="navbar" style="background-color:rgb(34, 30, 31);">
-        <div class="container-fluid">
-            <a style="color:white"class="navbar-brand">&#129656; Donorin</a>
-        </div>
-    </nav>
-</body>
+    </div><br>
+{% include 'bottomNavbar.html' %}
 
 {% endblock content %}
