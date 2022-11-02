@@ -23,6 +23,7 @@ urlpatterns = [
     path('landing/', include('landing.urls')),
     path('adminUser/', include('adminDashboard.urls')),
     path('jadwal/', include('jadwal.urls')),
+    path('donorUser/', include('user-dashboard.urls')),
 ]
 
 # TODO: Implement Routings Here
