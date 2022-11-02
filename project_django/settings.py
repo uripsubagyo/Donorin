@@ -40,17 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'example_app',
-    'users',
     'landing',
     'adminDashboard',
     'jadwal',
     'signup',
     'signin',
-    'dashboard'
-=========
-    'jadwal',
->>>>>>>>> Temporary merge branch 2
+    'dashboard',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
