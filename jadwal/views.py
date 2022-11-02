@@ -4,20 +4,18 @@ from jadwal.forms import JadwalForm
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
 from django.urls import reverse
-from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 
 @login_required(login_url='/login/')
 def show_jadwal(request):
-    if request.user.is_authenticated():
-        jadwal = Jadwal.objects.filter(user=request.user)
-        context = {
-            'list_jadwal': jadwal
-        }
+    jadwal = Jadwal.objects.filter(user=request.user)
+    context = {
+        'list_jadwal': jadwal
+    }
 
-        return render(request, 'jadwal.html', context)
-    return redirect('/login')
+    return render(request, 'jadwal.html', context)
 
 @login_required(login_url='/login/')
 def delete(request, id):
@@ -29,21 +27,19 @@ def delete(request, id):
 
 @login_required(login_url='/login/')
 def book_jadwal(request):
-    if request.user.is_authenticated():
-        if request.method == 'POST':
-            form = JadwalForm(request.POST)
-            if form.is_valid():
-                tanggal = form.cleaned_data['tanggal']
-                lokasi = form.cleaned_data['lokasi']
+    if request.method == 'POST':
+        form = JadwalForm(request.POST)
+        if form.is_valid():
+            tanggal = form.cleaned_data['tanggal']
+            lokasi = form.cleaned_data['lokasi']
 
-                Jadwal.objects.create(user=request.user, date=tanggal, loc=lokasi, accepted='Menunggu konfirmasi')
+            Jadwal.objects.create(user=request.user, date=tanggal, loc=lokasi, accepted='Menunggu konfirmasi')
 
-                return HttpResponseRedirect(reverse('jadwal:show_jadwal'))
-        else:
-            form = JadwalForm()
-        context = {'form':form}
-        return render(request, 'book.html', context)
-    return redirect('/login')
+            return HttpResponseRedirect(reverse('jadwal:show_jadwal'))
+    else:
+        form = JadwalForm()
+    context = {'form':form}
+    return render(request, 'book.html', context)
 
 def show_location(request):
     return render(request, 'location.html')
