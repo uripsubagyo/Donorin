@@ -14,7 +14,7 @@ class InformationUser(models.Model):
 
     is_validate = models.BooleanField(default = False)              # untuk diverifikasi oleh admin
     is_admin_user = models.BooleanField(default= False)             # untuk membedakan relawan dan staff admin
-        
+    by_validate = models.CharField(max_length = 30, default="none")
     
     def is_admin(self):
         return self.is_admin_user;
