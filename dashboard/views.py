@@ -38,7 +38,8 @@ def information_user(request):
         return render(request, 'build_information_user.html', context)
     else:
         # direct dashboard information
-        if information_default.is_admin_user() == True:
+        usersa = InformationUser.objects.filter(user=request.user)
+        if usersa.is_admin_user() == True:
             return redirect('dashboard:dashboard_admin')
         else:
             return redirect('dashboard:dashboard_relawan')
@@ -56,13 +57,21 @@ def direct_url(request):
 @login_required(login_url='login/')
 def dashboard_relawan(request):
     context = {}
-    return render(request, 'dahsboard_relawan.html', context)
+    usersa = InformationUser.objects.filter(user=request.user, is_admin_user=False).count()
+    if usersa != 0:
+        return render(request, 'dahsboard_relawan.html', context)
+    else:
+        return redirect('dashboard:dashboard_admin') 
 
 
 @login_required(login_url='login/')
-def dashboard_admin(requuest):
+def dashboard_admin(request):
     context = {}
-    return render(requuest, 'dashboard_admin.html', context)
+    usersa = InformationUser.objects.filter(user=request.user, is_admin_user=True)
+    if usersa != 0:
+        return render(request, 'dashboard_admin.html', context)
+    else:
+        return redirect('dashboard:dashboard_relawan')
 
 
 @login_required(login_url='login/')
@@ -100,8 +109,9 @@ def information_admin(request):
         #kondosi belum isi
         render(request, 'build_information.html', context)
     else:
-        # direct dashboard information
-        if information_default.is_admin_user() == True:
+        usersa = InformationUser.objects.filter(user=request.user)
+        if usersa.is_admin_user() == True:
             return redirect('dashboard:dashboard_admin')
         else:
             return redirect('dashboard:dashboard_relawan')
+

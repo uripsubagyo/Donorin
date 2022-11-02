@@ -17,7 +17,7 @@ class InformationUser(models.Model):
     by_validate = models.CharField(max_length = 30, default="none")
     
     def is_admin(self):
-        return self.is_admin_user;
+        return self.is_admin_user
     
     def is_validate(self):
-        return self.is_validate;
+        return self.is_validate
