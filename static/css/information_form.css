@@ -1,6 +1,6 @@
 @media (min-width:1200px) {
     .body-information{
-        padding:  49px;
+        padding: 49px;
     }
     .left-signup-decoration{
         background: #EB1D36;
@@ -16,6 +16,10 @@
         font-size: 30px;
         line-height: 36px;
         margin: 65px 39px;
+    }
+    .btn-head-logout{
+        display: flex;
+        justify-content: space-between;
     }
 
     .tag-line-left{
@@ -136,6 +140,10 @@
     }
     .left-signup-decoration{
         display: none;
+    }
+    .btn-head-logout{
+        display: flex;
+        justify-content: space-between;
     }
 
     .tag-info-btn{

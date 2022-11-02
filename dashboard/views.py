@@ -38,7 +38,10 @@ def information_user(request):
         return render(request, 'build_information_user.html', context)
     else:
         # direct dashboard information
-        return render(request, 'build_information_user.html', context)
+        if information_default.is_admin_user() == True:
+            return redirect('dashboard:dashboard_admin')
+        else:
+            return redirect('dashboard:dashboard_relawan')
 
 @login_required(login_url='login/')
 def direct_url(request):
@@ -67,6 +70,7 @@ def information_admin(request):
     username_user = request.user.username
     # check user sudah pernah isi atau tidak:
     information_default = InformationUser.objects.filter(user = request.user).count()
+
     if request.method == "POST":
         full_name = request.POST.get("full_name")
         blood_group = request.POST.get('blood_group')
@@ -90,9 +94,14 @@ def information_admin(request):
         information.save()
 
     context = {'username': username_user}
+    #direct ke dashboard
 
     if information_default == 0:
-        return render(request, 'build_information_admin.html', context)
+        #kondosi belum isi
+        render(request, 'build_information.html', context)
     else:
         # direct dashboard information
-        return render(request, 'build_information_admin.html', context)
+        if information_default.is_admin_user() == True:
+            return redirect('dashboard:dashboard_admin')
+        else:
+            return redirect('dashboard:dashboard_relawan')

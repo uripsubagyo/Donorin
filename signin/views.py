@@ -4,8 +4,12 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from dashboard.models import InformationUser
 from dashboard.views import dashboard_relawan
+from django.contrib import auth
 
 def login_user(request):
+    users = request.user
+    if request.user.is_authenticated:
+        return redirect("dashboard:information_user")
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -26,5 +30,5 @@ def login_user(request):
     return render(request, 'signin_.html', context)
 
 def logout(request):
-    logout(request)
-    return redirect('signin')
+    auth.logout(request)
+    return redirect('signin:login_user')
